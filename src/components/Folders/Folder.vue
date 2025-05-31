@@ -35,7 +35,7 @@ import FolderSidebar from './FolderSidebar.vue'
 }
 
 .folder-body > *:first-child {
-  width: 35%;
+  width: 30%;
   height: 100%;
 }
 
