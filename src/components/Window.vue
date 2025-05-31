@@ -1,0 +1,113 @@
+<template>
+  <div
+    class="window"
+    :style="{ top: position.y + 'px', left: position.x + 'px' }"
+    @mousedown="startDrag"
+    ref="windowRef"
+  >
+    <div class="header d-flex align-items-center justify-content-between">
+      <div class="ms-1 d-flex header-name align-items-center">
+        <img :src="`/src/assets/icons/${icon}`" alt="" width="18px" height="18px" class="me-1">
+        {{ name }}
+      </div>
+      <div class="d-flex header-buttons align-items-center">
+        <img src="@icons/maximize.png" alt="" >
+        <img src="@icons/minimize.png" alt="" >
+        <img src="@icons/close.png" alt="">
+      </div>
+    </div>
+    <slot />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const props = defineProps(['name', 'icon'])
+
+const position = ref({ x: 100, y: 100 })
+const dragging = ref(false)
+const offset = ref({ x: 0, y: 0 })
+const windowRef = ref(null)
+
+const startDrag = (e) => {
+  dragging.value = true
+  offset.value = {
+    x: e.clientX - position.value.x,
+    y: e.clientY - position.value.y,
+  }
+
+  document.addEventListener('mousemove', onDrag)
+  document.addEventListener('mouseup', stopDrag)
+}
+
+const onDrag = (e) => {
+  if (!dragging.value) return
+
+  const winEl = windowRef.value
+  if (!winEl) return
+
+  const winWidth = winEl.offsetWidth
+  const winHeight = winEl.offsetHeight
+  const maxX = window.innerWidth - winWidth
+  const maxY = window.innerHeight - winHeight
+
+  let newX = e.clientX - offset.value.x
+  let newY = e.clientY - offset.value.y
+
+  newX = Math.max(0, Math.min(newX, maxX))
+  newY = Math.max(0, Math.min(newY, maxY))
+
+  position.value = {
+    x: newX,
+    y: newY,
+  }
+}
+
+const stopDrag = () => {
+  dragging.value = false
+  document.removeEventListener('mousemove', onDrag)
+  document.removeEventListener('mouseup', stopDrag)
+}
+</script>
+
+<style scoped>
+.window {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  border: 2px solid #002DD1;
+  border-top: none;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  width: 50%;
+  height: 80%;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  cursor: move;
+  user-select: none;
+}
+
+.header {
+  height: 32px;
+  width: 100%;
+  background: #1043B4;
+  background: linear-gradient(
+    0deg, rgba(16, 67, 180, 1) 
+    0%, rgba(33, 98, 222, 1) 
+    10%, rgba(33, 95, 220, 1) 
+    33%, rgba(28, 84, 214, 1) 
+    53%, rgba(35, 93, 218, 1) 
+    75%, rgba(52, 113, 226, 1) 
+    84%, rgba(107, 171, 255, 1) 
+    94%, rgba(52, 113, 226, 1) 
+    99%);
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  color: white;
+}
+
+.header-buttons img{
+ margin: 0px 2px;
+ width: 22px;
+ height: 22px;
+}
+</style>
