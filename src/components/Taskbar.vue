@@ -32,7 +32,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 10;
+    z-index: 5;
     background: #1043B4;
     background: linear-gradient(
       0deg, rgba(16, 67, 180, 1) 

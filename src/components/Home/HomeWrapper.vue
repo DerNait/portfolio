@@ -1,6 +1,20 @@
 <template>
   <div class="home d-flex flex-column justify-content-between">
-    <div class="header"></div>
+    <div class="header">
+      <img src="https://23584.dernait.my/assets/kevin-pfp.jpg" alt="" class="pfp">
+      <p class="m-0 p-0 ms-2">
+        Kevin Villagrán
+      </p>
+    </div>
+    <div class="gold-line"></div>
+    <div class="main d-flex">
+      <div class="left-side">
+
+      </div>
+      <div class="right-side">
+
+      </div>
+    </div>
     <div class="footer d-flex align-items-center justify-content-end">
       <img src="@icons/shutdown.png" alt="" width="28px" class="me-1">
       Turn Off Computer
@@ -18,17 +32,29 @@
   }
 
   .header {
-    height: 70px;
+    height: 100px;
     width: 100%;
     background: #4791ED;
     background: linear-gradient(0deg, rgba(71, 145, 237, 1) 0%, rgba(33, 98, 222, 1) 42%, rgba(28, 84, 214, 1) 61%, rgba(35, 93, 218, 1) 75%, rgba(52, 113, 226, 1) 84%, rgba(107, 171, 255, 1) 94%, rgba(52, 113, 226, 1) 99%);
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
+    border-bottom: 2px solid #4B82D5;
     color: white;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.516);
+  }
+
+  .gold-line {
+    height: 4px;
+    width: 100%;
+    background: #FFFF;
+background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(198, 150, 109, 1) 50%, rgba(211, 229, 251, 1) 100%);
   }
 
   .footer {
-    height: 50px;
+    height: 52px;
     width: 100%;
     background: #0E5ECA;
     background: linear-gradient(0deg, rgba(14, 94, 202, 1) 0%, rgba(63, 140, 231, 1) 100%);
@@ -37,6 +63,32 @@
     font-size: 12px;
     text-shadow: 0.5px 2px 2px rgba(0, 0, 0, 0.279);
     padding-right: 8px;
+    border-top: 1px solid #4474B2;
+  }
+
+  .main {
+    height: 100%;
+    width: 100%;
+  }
+
+  .left-side {
+    height: 100%;
+    width: 100%;
+    background-color: #FFFFFF;
+  }
+  .right-side {
+    height: 100%;
+    width: 100%;
+    background-color: #D3E5FB;
+    border-left: 1px solid #A3B8D3;
+  }
+
+  .pfp {
+    width: 54px;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.367);
+    margin-left: 8px;
   }
 </style>
 

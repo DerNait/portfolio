@@ -1,6 +1,8 @@
 <template>
     <HomeWrapper class="home-bar"/>
-    <Window :name="'Probando esto'" :icon="'pinball.png'"/>
+    <Window :name="'Probando esto'" :icon="'pinball.png'">
+        <Folder />
+    </Window>
     <div class="desktop-grid">
         <DesktopIcon :icon="'pinball.png'" style="grid-column: 1; grid-row: 1;" />
         <DesktopIcon :icon="'windows-xp-logo.png'" style="grid-column: 1; grid-row: 2;" />
@@ -19,4 +21,5 @@
     import Taskbar from './components/Taskbar.vue';
     import Window from './components/Window.vue';
     import HomeWrapper from './components/Home/HomeWrapper.vue';
+    import Folder from './components/Folders/Folder.vue';
 </script>

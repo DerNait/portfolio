@@ -1,5 +1,5 @@
 <template>
-  <button class="start-button d-flex justify-content-start ps-3 align-items-center">
+  <button class="start-button d-flex justify-content-center align-items-center">
     <img src="@icons/windows-xp-logo.png" alt="" width="32px" height="32px">
     start
   </button>

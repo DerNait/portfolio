@@ -2,21 +2,31 @@
   <div
     class="window"
     :style="{ top: position.y + 'px', left: position.x + 'px' }"
-    @mousedown="startDrag"
     ref="windowRef"
   >
-    <div class="header d-flex align-items-center justify-content-between">
+    <div 
+      class="header d-flex align-items-center justify-content-between"
+      @mousedown="startDrag"
+    >
       <div class="ms-1 d-flex header-name align-items-center">
-        <img :src="`/src/assets/icons/${icon}`" alt="" width="18px" height="18px" class="me-1">
+        <img
+          :src="`/src/assets/icons/${icon}`"
+          alt=""
+          width="18px"
+          height="18px"
+          class="me-1"
+        />
         {{ name }}
       </div>
       <div class="d-flex header-buttons align-items-center">
-        <img src="@icons/maximize.png" alt="" >
-        <img src="@icons/minimize.png" alt="" >
-        <img src="@icons/close.png" alt="">
+        <img src="@icons/minimize.png" alt="" />
+        <img src="@icons/maximize.png" alt="" />
+        <img src="@icons/close.png" alt="" />
       </div>
     </div>
-    <slot />
+    <div class="window-content">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -36,7 +46,6 @@ const startDrag = (e) => {
     x: e.clientX - position.value.x,
     y: e.clientY - position.value.y,
   }
-
   document.addEventListener('mousemove', onDrag)
   document.addEventListener('mouseup', stopDrag)
 }
@@ -58,10 +67,7 @@ const onDrag = (e) => {
   newX = Math.max(0, Math.min(newX, maxX))
   newY = Math.max(0, Math.min(newY, maxY))
 
-  position.value = {
-    x: newX,
-    y: newY,
-  }
+  position.value = { x: newX, y: newY }
 }
 
 const stopDrag = () => {
@@ -82,12 +88,11 @@ const stopDrag = () => {
   width: 50%;
   height: 80%;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-  cursor: move;
   user-select: none;
 }
 
 .header {
-  height: 32px;
+  height: 36px;
   width: 100%;
   background: #1043B4;
   background: linear-gradient(
@@ -105,9 +110,19 @@ const stopDrag = () => {
   color: white;
 }
 
+.header-name {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.743);
+}
+
 .header-buttons img{
  margin: 0px 2px;
  width: 22px;
  height: 22px;
+}
+
+.window-content {
+  height: calc(100% - 36px);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 </style>
