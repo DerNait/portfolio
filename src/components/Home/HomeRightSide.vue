@@ -4,7 +4,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
@@ -13,7 +13,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
@@ -22,7 +22,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
@@ -31,7 +31,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
@@ -40,7 +40,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
@@ -50,7 +50,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :highlight="true"
   />
   <FolderItem 
@@ -58,7 +58,7 @@
     :name="'Internet getting very very explored'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :highlight="true"
   />
   <FolderItem 
@@ -66,7 +66,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :highlight="true"
   />
   <div class="separator"></div>
@@ -75,7 +75,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     :highlight="true"
   />
   <FolderItem 
@@ -83,7 +83,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     
     :highlight="true"
   />
@@ -92,7 +92,7 @@
     :name="'Internet'"
     
     :icon="'folder.png'"
-    :icon_size="'28px'"
+    :icon_size="'32px'"
     
     :highlight="true"
   />
@@ -110,6 +110,6 @@ import FolderItem from '../Folders/FolderItem.vue';
     margin: 0.5rem 0;
     height: 1px;
     background: #FFFF;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(151, 151, 151, 1) 50%, rgba(211, 229, 251, 0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #0149b554 50%, rgba(211, 229, 251, 0) 100%);
   }
 </style>

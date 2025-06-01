@@ -2,15 +2,12 @@
   <div class="taskbar">
     <StartButton />
     <div class="apps-container ms-3">
-      <OpenedAppBar :name="'prueba'" :icon="'windows-xp-logo.png'" :selected="true" />
-      <OpenedAppBar :name="'prueba'" :icon="'windows-xp-logo.png'"/>
-      <OpenedAppBar :name="'prueba'" :icon="'windows-xp-logo.png'"/>
-      <!-- <OpenedAppBar 
+      <OpenedAppBar 
         v-for="(app, index) in opened_apps" 
         :key="index" 
-        :name="app.name" 
-        :icon="app.icon" 
-      /> -->
+        :app="app"
+        :selected="isSelected(app)" 
+      />
     </div>
   </div>
 </template>
@@ -19,7 +16,11 @@
   import StartButton from './StartButton.vue';
   import OpenedAppBar from './OpenedAppBar.vue';
 
-  const props = defineProps(['opened_apps']);
+  const props = defineProps(['selected_app', 'opened_apps']);
+
+  function isSelected(app) {
+    return props.selected_app?.id === app.id;
+  }
 </script>
 
 <style scoped>

@@ -1,9 +1,30 @@
 <template>
-  <button class="start-button d-flex justify-content-center align-items-center">
+  <button 
+    :class="`start-button d-flex justify-content-center align-items-center ` + pressedClass()"
+    @click="toggleStartMenu"
+  >
     <img src="@icons/windows-xp-logo.png" alt="" width="32px" height="32px">
     start
   </button>
 </template>
+
+<script setup>
+import { inject } from 'vue';
+
+  const props = defineProps(['pressed'])
+
+  const isMenuHided = inject('isMenuHided')
+  const selectedApp = inject('selectedApp')
+
+  function pressedClass() {
+    return !isMenuHided.value ? 'pressed' : '';
+  }
+
+  function toggleStartMenu() {
+    isMenuHided.value = !isMenuHided.value;
+    selectedApp.value = null;
+  }
+</script>
 
 <style scoped>
   .start-button {
@@ -25,7 +46,13 @@
     font-family: 'Tahoma', sans-serif;
   }
 
+  .pressed {
+    box-shadow: inset -2px 2px 10px rgba(0, 0, 0, 0.853);
+    background: #2C942E;
+    background: linear-gradient(0deg, rgba(44, 148, 46, 1) 0%, rgba(66, 179, 70, 1) 5%, rgba(23, 149, 30, 1) 37%, rgba(23, 149, 30, 1) 67%, rgba(23, 149, 30, 1) 79%, rgba(69, 173, 69, 1) 92%, rgba(23, 149, 30, 1) 100%);
+  }
+
   .start-button img {
-    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.697));
   }
 </style>

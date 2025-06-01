@@ -6,24 +6,14 @@
       <FolderSidebar />
 
       <div class="folder-main">
-        <div class="row">
+        <div class="row ms-1 me-1">
           <FolderItem 
+            v-for="(folder, index) in folders"
             class="mt-1 mb-1 col-6"
-            :name="'Probando el name'"
-            :description="'Esta sería la descripción en sí del proyecto'"
-            :icon="'folder.png'" 
-          />
-          <FolderItem
-            class="mt-1 mb-1 col-6"
-            :name="'Probando el name'"
-            :description="'Esta sería la descripción en sí del proyecto'"
-            :icon="'folder.png'" 
-          />
-          <FolderItem 
-            class="mt-1 mb-1 col-6"
-            :name="'Probando el name'"
-            :description="'Esta sería la descripción en sí del proyecto'"
-            :icon="'folder.png'" 
+            :name="folder.name"
+            :description="folder.description"
+            :icon="folder.icon"
+            :icon_size="'48px'"
           />
         </div>
       </div>

@@ -41,7 +41,7 @@
   }
 
   .header {
-    height: 100px;
+    height: 110px;
     width: 100%;
     background: #4791ED;
     background: linear-gradient(0deg, rgba(71, 145, 237, 1) 0%, rgba(33, 98, 222, 1) 42%, rgba(28, 84, 214, 1) 61%, rgba(35, 93, 218, 1) 75%, rgba(52, 113, 226, 1) 90%, rgba(107, 171, 255, 1) 95%, rgba(52, 113, 226, 1) 99%);
@@ -63,7 +63,7 @@
   }
 
   .footer {
-    height: 52px;
+    height: 60px;
     width: 100%;
     background: #0E5ECA;
     background: linear-gradient(0deg, rgba(14, 94, 202, 1) 0%, rgba(63, 140, 231, 1) 100%);

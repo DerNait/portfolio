@@ -1,12 +1,19 @@
 <template>
-  <button :class="barClass()">
-    <img :src="`/src/assets/icons/${icon}`" class="app-icon" />
-    <span>{{ name }}</span>
+  <button 
+    :class="barClass()"
+    @click="selectApp(app)"
+  >
+    <img :src="`/src/assets/icons/${app.icon}`" class="app-icon" />
+    <span>{{ app.name }}</span>
   </button>
 </template>
 
 <script setup>
-const props = defineProps(['name', 'icon', 'selected'])
+import { inject, ref } from 'vue';
+
+const props = defineProps(['app', 'selected'])
+
+const selectApp = inject('selectApp')
 
 function barClass() {
   return (props.selected ? 'selected ' : '') + 'app-bar'
@@ -20,7 +27,7 @@ function barClass() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1B51B7;
+  background: #3980F4;
   border: none;
   color: white;
   padding: 0 10px;
@@ -31,13 +38,13 @@ function barClass() {
   text-overflow: ellipsis;
   white-space: nowrap;
   border-radius: 4px;
-  box-shadow: inset  1px 1px 4px rgba(0, 0, 0, 0.484);
+  box-shadow: inset  1.5px 1.5px 4px rgba(255, 255, 255, 0.484);
   font-family: 'Tahoma', sans-serif;
 }
 
 .selected {
-  background-color: #3980F4;
-  box-shadow: inset  1.5px 1.5px 4px rgba(255, 255, 255, 0.484);
+  background: #1B51B7;
+  box-shadow: inset  1px 1px 4px rgba(0, 0, 0, 0.484);
 }
 
 .app-icon {
