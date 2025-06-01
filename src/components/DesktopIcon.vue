@@ -33,8 +33,8 @@
   margin: 4px 0 0;
   line-height: 1;
   color: white;
-  text-shadow: 0.5px 2px 3px rgba(0, 0, 0, 0.881);
+  text-shadow: 0.5px 2px 3px rgba(0, 0, 0, 0.626);
   text-overflow: ellipsis;
-  font-family: Tahoma, sans-serif;
+  font-family: 'Tahoma', sans-serif;
 }
 </style>

@@ -44,7 +44,7 @@
       84%, rgba(107, 171, 255, 1) 
       94%, rgba(52, 113, 226, 1) 
       99%);
-    font-family: Tahoma, sans-serif;
+    font-family: 'Tahoma', sans-serif;
   }
 
   .apps-container {

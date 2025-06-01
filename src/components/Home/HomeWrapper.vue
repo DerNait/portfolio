@@ -9,7 +9,7 @@
     <div class="gold-line"></div>
     <div class="main d-flex">
       <div class="left-side">
-
+        
       </div>
       <div class="right-side">
 
@@ -22,6 +22,12 @@
   </div>
 </template>
 
+<script setup>
+  import FolderItem from '../Folders/FolderItem.vue';
+
+  const props = defineProps(['left_items', 'right_items'])
+</script>
+
 <style scoped>
   .home {
     border-radius: 10px 10px 1px 1px;
@@ -29,6 +35,7 @@
     box-shadow: 2px 2px 4px #00000079;
     border: 2px solid #002DD1;
     border-top: none;
+    font-family: 'Trebuchet MS', sans-serif;
   }
 
   .header {
@@ -59,7 +66,7 @@ background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(198, 150, 109
     background: #0E5ECA;
     background: linear-gradient(0deg, rgba(14, 94, 202, 1) 0%, rgba(63, 140, 231, 1) 100%);
     color: white;
-    font-family: Tahoma, sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 12px;
     text-shadow: 0.5px 2px 2px rgba(0, 0, 0, 0.279);
     padding-right: 8px;

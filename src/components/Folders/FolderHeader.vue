@@ -63,7 +63,7 @@
     height: 100px;
     background-color: #EEEBD3;
     background: linear-gradient(90deg, #F2F4F2 0%, #EEEBD3 100%);
-    font-family: Tahoma, sans-serif;
+    font-family: 'Tahoma', sans-serif;
     color: #C6C5BC;
   }
 

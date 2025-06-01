@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'WindowsXPTahoma';
+  src: url('assets/fonts/windows-xp-tahoma.otf.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background: url('@assets/backgrounds/main-background.jpg');
   background-size: cover;
@@ -21,6 +28,6 @@ body {
   height: 550px;
   position: absolute;
   z-index: 10;
-  font-family: Tahoma, sans-serif;
+  font-family: 'WindowsXPTahoma', sans-serif;
   bottom: 39px;
 }

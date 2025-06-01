@@ -6,9 +6,26 @@
       <FolderSidebar />
 
       <div class="folder-main">
-        <p style="color: black; padding: 8px;">
-          Luego pongo algo aca...
-        </p>
+        <div class="row">
+          <FolderItem 
+            class="mt-1 mb-1 col-6"
+            :name="'Probando el name'"
+            :description="'Esta sería la descripción en sí del proyecto'"
+            :icon="'folder.png'" 
+          />
+          <FolderItem
+            class="mt-1 mb-1 col-6"
+            :name="'Probando el name'"
+            :description="'Esta sería la descripción en sí del proyecto'"
+            :icon="'folder.png'" 
+          />
+          <FolderItem 
+            class="mt-1 mb-1 col-6"
+            :name="'Probando el name'"
+            :description="'Esta sería la descripción en sí del proyecto'"
+            :icon="'folder.png'" 
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -17,6 +34,10 @@
 <script setup>
 import FolderHeader from './FolderHeader.vue'
 import FolderSidebar from './FolderSidebar.vue'
+import FolderItem from './FolderItem.vue'
+
+const props = defineProps(['sidebar_sections', 'folders'])
+
 </script>
 
 <style scoped>
@@ -26,6 +47,7 @@ import FolderSidebar from './FolderSidebar.vue'
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  font-family: 'Tahoma', sans-serif;
 }
 
 .folder-body {
@@ -41,7 +63,7 @@ import FolderSidebar from './FolderSidebar.vue'
 
 .folder-main {
   flex: 1;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   overflow: hidden;
 }
 </style>

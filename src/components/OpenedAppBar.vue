@@ -32,7 +32,7 @@ function barClass() {
   white-space: nowrap;
   border-radius: 4px;
   box-shadow: inset  1px 1px 4px rgba(0, 0, 0, 0.484);
-  font-family: Tahoma, sans-serif;
+  font-family: 'Tahoma', sans-serif;
 }
 
 .selected {

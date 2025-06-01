@@ -22,6 +22,7 @@
     border-bottom-right-radius: 20px;
     text-shadow: 0.5px 2px 2px rgba(0, 0, 0, 0.553);
     box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.7);
+    font-family: 'Tahoma', sans-serif;
   }
 
   .start-button img {
