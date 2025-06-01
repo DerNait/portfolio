@@ -4,7 +4,7 @@
         {{ name }}
       </div>
       <div :class="`section-content` + contentClass()" v-if="content">
-        <FolderItem :name="content[0].name" :icon="content[0].icon" :icon_size="'28px'" :highlight="true"/>
+        <FolderItem :name="content[0].name" :icon="content[0].icon" :icon_size="'24px'" :highlight="true"/>
       </div>
     </div>
 </template>
@@ -40,6 +40,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 12px;
     font-weight: bold;
   }
 

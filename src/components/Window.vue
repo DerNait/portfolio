@@ -80,7 +80,7 @@ const stopDrag = () => {
 <style scoped>
 .window {
   position: absolute;
-  background: rgb(255, 255, 255);
+  background: #002DD1;
   border: 2px solid #002DD1;
   border-top: none;
   border-top-left-radius: 7px;

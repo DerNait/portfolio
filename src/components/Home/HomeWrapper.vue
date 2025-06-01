@@ -9,10 +9,10 @@
     <div class="gold-line"></div>
     <div class="main d-flex">
       <div class="left-side">
-        
+        <HomeLeftSide />
       </div>
       <div class="right-side">
-
+        <HomeRightSide />
       </div>
     </div>
     <div class="footer d-flex align-items-center justify-content-end">
@@ -24,6 +24,8 @@
 
 <script setup>
   import FolderItem from '../Folders/FolderItem.vue';
+  import HomeLeftSide from './HomeLeftSide.vue';
+  import HomeRightSide from './HomeRightSide.vue';
 
   const props = defineProps(['left_items', 'right_items'])
 </script>
@@ -42,7 +44,7 @@
     height: 100px;
     width: 100%;
     background: #4791ED;
-    background: linear-gradient(0deg, rgba(71, 145, 237, 1) 0%, rgba(33, 98, 222, 1) 42%, rgba(28, 84, 214, 1) 61%, rgba(35, 93, 218, 1) 75%, rgba(52, 113, 226, 1) 84%, rgba(107, 171, 255, 1) 94%, rgba(52, 113, 226, 1) 99%);
+    background: linear-gradient(0deg, rgba(71, 145, 237, 1) 0%, rgba(33, 98, 222, 1) 42%, rgba(28, 84, 214, 1) 61%, rgba(35, 93, 218, 1) 75%, rgba(52, 113, 226, 1) 90%, rgba(107, 171, 255, 1) 95%, rgba(52, 113, 226, 1) 99%);
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom: 2px solid #4B82D5;
@@ -57,7 +59,7 @@
     height: 4px;
     width: 100%;
     background: #FFFF;
-background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(198, 150, 109, 1) 50%, rgba(211, 229, 251, 1) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(198, 150, 109, 1) 50%, rgba(211, 229, 251, 1) 100%);
   }
 
   .footer {
@@ -83,6 +85,7 @@ background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(198, 150, 109
     width: 100%;
     background-color: #FFFFFF;
   }
+
   .right-side {
     height: 100%;
     width: 100%;
@@ -91,7 +94,7 @@ background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(198, 150, 109
   }
 
   .pfp {
-    width: 54px;
+    width: 64px;
     border: 2px solid white;
     border-radius: 5px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.367);

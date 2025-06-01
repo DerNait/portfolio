@@ -34,7 +34,6 @@
   }
 
   .important-name {
-    color: #014AB5;
     font-weight: bold;
   }
 

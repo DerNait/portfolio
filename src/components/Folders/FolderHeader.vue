@@ -43,7 +43,7 @@
       <div class="address ms-1">
         <div class="d-flex align-items-center">
           <img src="@icons/folder.png" alt="">
-          <p class="m-0 p-0">C://route/test.html</p>
+          <p class="m-0 p-0">C:\route\test.html</p>
         </div>
         <div>
           <img src="@icons/folder.png" alt="">
