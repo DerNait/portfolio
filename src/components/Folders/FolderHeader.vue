@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="d-flex subheader second-header">
-      <div class="header-buttons" style="width: 25%;">
+      <div class="lower-header-buttons" style="width: 25%;">
         <div class="d-flex align-items-center">
           <img src="@icons/folder.png" alt="">
           <p class="p-0 m-0">Back</p>
@@ -22,7 +22,7 @@
         <img src="@icons/folder.png" alt="">
         <img src="@icons/folder.png" alt="">
       </div>
-      <div class="header-buttons" style="width: 25%;">
+      <div class="lower-header-buttons" style="width: 25%;">
         <div class="d-flex align-items-center">
           <img src="@icons/lupa.png" alt="">
           <p class="p-0 m-0">Search</p>
@@ -32,7 +32,7 @@
           <p class="p-0 m-0">Search</p>
         </div>
       </div>
-      <div class="header-buttons last" style="width: 75%;">
+      <div class="lower-header-buttons last" style="width: 75%;">
         <div class="d-flex align-items-center ms-1">
           <img src="@icons/folder.png" alt="">
         </div>
@@ -100,7 +100,7 @@
     border-left: 1px solid #E5E1D5;
   }
 
-  .header-buttons {
+  .lower-header-buttons {
     height: 100%;
     border: none;
     border-right: 1px solid #E5E1D5;
@@ -110,7 +110,7 @@
     font-size: 14px;
   }
 
-  .header-buttons img {
+  .lower-header-buttons img {
     width: 32px;
   }
 

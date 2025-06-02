@@ -5,15 +5,22 @@
       class="home-bar"
     />
   </transition>
-  <Window
-    v-for="(app, index) in openedApps"
-    :app="app"
-    :is_selected="isSelected(app)"
-  >
-    <Folder 
-      :folders="app.folders"
-    />
-  </Window>
+  <div v-for="(app, index) in openedApps">
+    <transition name="minimize-window">
+      <Window
+        v-show="app.show"
+        :app="app"
+        :is_selected="isSelected(app)"
+      >
+        <template #default="{ maximize }">
+          <Folder 
+            :folders="app.folders"
+            :maximize="maximize"
+          />
+        </template>
+      </Window>
+    </transition>
+  </div>
   <div class="desktop-grid">
     <DesktopIcon :icon="'pinball.png'" style="grid-column: 1; grid-row: 1;" />
     <DesktopIcon :icon="'windows-xp-logo.png'" style="grid-column: 1; grid-row: 2;" />
@@ -28,7 +35,6 @@
     :opened_apps="openedApps"
     :selected_app="selectedApp"
     :is_menu_hided="isMenuHided"
-    @displayStartMenu="displayStartMenu"
   />
 </template>
 
@@ -36,19 +42,20 @@
   import { ref, provide } from 'vue';
   import DesktopIcon from '@components/DesktopIcon.vue';
   import Taskbar from './components/Taskbar.vue';
-  import Window from './components/Window.vue';
+  import Window from './components/Window/Window.vue';
   import HomeWrapper from './components/Home/HomeWrapper.vue';
   import Folder from './components/Folders/Folder.vue';
 
   const isMenuHided = ref(true);
   provide('isMenuHided', isMenuHided)
 
-  const openedApps = [
+  const openedApps = ref([
     {
       id: 1,
       name: 'Probando esto',
       description: 'Testing the layout',
       icon: 'pinball.png',
+      show: true,
       folders: [
         {
           name: 'Probando el name',
@@ -72,6 +79,7 @@
       name: 'Probando esto 2',
       description: 'Testing the layout',
       icon: 'pinball.png',
+      show: true,
       folders: [
         {
           name: 'Probando el name',
@@ -90,21 +98,27 @@
         },
       ]
     },
-  ]
-  const selectedApp = ref(openedApps[0])
+  ])
+  const selectedApp = ref(openedApps.value[0])
   provide ('selectedApp', selectedApp)
 
   function selectApp(app) {
     selectedApp.value = app
-    isMenuHided.value = true;
+    isMenuHided.value = true
   }
   provide ('selectApp', selectApp)
 
   function isSelected(app) {
-    return selectedApp.value?.id === app.id;
+    return selectedApp.value?.id === app.id
   }
 
-  function displayStartMenu() {
-
+  function hideWindow(id) {
+    const app = openedApps.value.find(a => a.id === id)
+    
+    if (app) {
+      app.show = false
+      selectedApp.value = false
+    }
   }
+  provide('hideWindow', hideWindow)
 </script>

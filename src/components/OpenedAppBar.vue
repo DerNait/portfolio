@@ -1,7 +1,7 @@
 <template>
   <button 
     :class="barClass()"
-    @click="selectApp(app)"
+    @click="selectBarApp()"
   >
     <img :src="`/src/assets/icons/${app.icon}`" class="app-icon" />
     <span>{{ app.name }}</span>
@@ -14,9 +14,21 @@ import { inject, ref } from 'vue';
 const props = defineProps(['app', 'selected'])
 
 const selectApp = inject('selectApp')
+const selectedApp = inject('selectedApp')
 
 function barClass() {
   return (props.selected ? 'selected ' : '') + 'app-bar'
+}
+
+function selectBarApp() {
+  if (props.selected) {
+    props.app.show = false
+    selectedApp.value = null
+    return
+  }
+
+  props.app.show = true
+  selectApp(props.app)
 }
 
 </script>

@@ -3,13 +3,15 @@
     <FolderHeader />
 
     <div class="folder-body">
-      <FolderSidebar />
+      <FolderSidebar 
+        :style="{ width: props.maximize === false ? '20%' : '30%', height: '100%' }"
+      />
 
       <div class="folder-main">
         <div class="row ms-1 me-1">
           <FolderItem 
             v-for="(folder, index) in folders"
-            class="mt-1 mb-1 col-6"
+            :class="['mt-1', 'mb-1', maximize === false ? 'col-4' : 'col-6']"
             :name="folder.name"
             :description="folder.description"
             :icon="folder.icon"
@@ -26,7 +28,7 @@ import FolderHeader from './FolderHeader.vue'
 import FolderSidebar from './FolderSidebar.vue'
 import FolderItem from './FolderItem.vue'
 
-const props = defineProps(['sidebar_sections', 'folders'])
+const props = defineProps(['sidebar_sections', 'folders', 'maximize'])
 
 </script>
 
@@ -46,10 +48,10 @@ const props = defineProps(['sidebar_sections', 'folders'])
   overflow: hidden;
 }
 
-.folder-body > *:first-child {
+/* .folder-body > *:first-child {
   width: 30%;
   height: 100%;
-}
+} */
 
 .folder-main {
   flex: 1;

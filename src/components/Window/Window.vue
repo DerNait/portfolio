@@ -1,7 +1,12 @@
 <template>
   <div
-    :class="`window` + unselectedClass()"
-    :style="{ top: position.y + 'px', left: position.x + 'px' }"
+    :class="['window', unselectedClass(), { 'window-transition': applyTransition }]"
+    :style="{ 
+      top: maximize ? position.y + 'px' : '0px', 
+      left: maximize ? position.x + 'px' : '0px',
+      width: maximize ? '50%' : '100%',
+      height: maximize ? '80%' : 'calc(100% - 40px)' 
+    }"
     ref="windowRef"
     @mousedown="selectApp(props.app)"
   >
@@ -20,21 +25,38 @@
         {{ app.name }}
       </div>
       <div class="d-flex header-buttons align-items-center">
-        <img src="@icons/minimize.png" alt="" />
-        <img src="@icons/maximize.png" alt="" />
-        <img src="@icons/close.png" alt="" />
+        <HeaderButton 
+          :icon="'minimize.png'" 
+          :is_selected="is_selected" 
+          :on_button_clicked="execHideWindow"
+        />
+        <HeaderButton 
+          :icon="'maximize.png'" 
+          :is_selected="is_selected"
+          :on_button_clicked="toggleMaximizeWindow"
+        />
+        <HeaderButton :icon="'close.png'" :is_selected="is_selected" class="me-1"/>
       </div>
     </div>
     <div class="window-content">
-      <slot />
+      <slot :maximize="maximize" />
     </div>
   </div>
 </template>
 
 <script setup>
 import { inject, ref } from 'vue'
+import HeaderButton from './HeaderButton.vue';
 
 const props = defineProps(['app', 'is_selected'])
+const maximize = ref(['false']);
+
+const hideWindow = inject('hideWindow')
+function execHideWindow() {
+  if (hideWindow) {
+    hideWindow(props.app.id)
+  }
+}
 
 const selectApp = inject('selectApp')
 
@@ -42,12 +64,25 @@ function unselectedClass() {
   return props.is_selected ? '' : ' unselected';
 }
 
-const position = ref({ x: 100, y: 100 })
+const position = ref({ x: 100, y: 100})
 const dragging = ref(false)
 const offset = ref({ x: 0, y: 0 })
 const windowRef = ref(null)
+const applyTransition = ref(false)
+
+function toggleMaximizeWindow() {
+  applyTransition.value = true
+  maximize.value = !maximize.value
+
+  setTimeout(() => {
+    applyTransition.value = false
+  }, 300)
+}
+
 
 const startDrag = (e) => {
+  if (props.maximize) return
+
   dragging.value = true
   offset.value = {
     x: e.clientX - position.value.x,
@@ -58,6 +93,8 @@ const startDrag = (e) => {
 }
 
 const onDrag = (e) => {
+  if (props.maximize) return
+
   if (!dragging.value) return
 
   const winEl = windowRef.value
@@ -79,6 +116,8 @@ const onDrag = (e) => {
 }
 
 const stopDrag = () => {
+  if (props.maximize) return
+
   dragging.value = false
   document.removeEventListener('mousemove', onDrag)
   document.removeEventListener('mouseup', stopDrag)
@@ -94,11 +133,13 @@ const stopDrag = () => {
   border-top: none;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  width: 50%;
-  height: 80%;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   user-select: none;
   z-index: 2;
+}
+
+.window-transition {
+  transition: top 0.25s ease, left 0.25s ease, width 0.25s ease, height 0.25s ease;
 }
 
 .header {

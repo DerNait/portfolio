@@ -54,3 +54,26 @@ body {
 .hide-menu-leave-active {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+.minimize-window-enter-from {
+  opacity: 0;
+  transform: scale(0.5) translateY(40px);
+}
+.minimize-window-enter-to {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.minimize-window-leave-from {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.minimize-window-leave-to {
+  opacity: 0;
+  transform: scale(0.5) translateY(40px);
+}
+
+.minimize-window-enter-active,
+.minimize-window-leave-active {
+  transition: all 0.25s ease-in-out;
+}
