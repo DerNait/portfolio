@@ -1,5 +1,5 @@
 import CSharp from "./C-Sharp";
-import C from "./C-Sharp";
+import C from "./C";
 import CSS from "./CSS";
 import Html from "./Html";
 import Java from "./Java";

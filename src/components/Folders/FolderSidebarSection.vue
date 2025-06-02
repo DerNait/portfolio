@@ -10,7 +10,7 @@
     >
       <div v-if="apps">
         <FolderItem
-          v-for="(app, index) in apps" 
+          v-for="(app, index) in (showAll ? apps : apps.slice(0, maxVisible))" 
           :name="app.name"
           :father_app="fatherApp"
           :app="app"
@@ -18,28 +18,48 @@
           :highlight="true"
           :no_description="true"
         />
+        <button
+          v-if="apps.length > maxVisible"
+          class="toggle-btn"
+          @click="toggleShowAll"
+        >
+          {{ showAll ? 'Show less' : 'Show all' }}
+        </button>
       </div>
       <div v-else>
         <FolderItem
-          v-for="(folder, index) in folders" 
+          v-for="(folder, index) in (showAll ? folders : folders.slice(0, maxVisible))" 
           :name="folder.name"
           :folder="folder"
           :icon_size="'24px'"
           :highlight="true"
           :no_description="true"
         />
+        <button
+          v-if="folders.length > maxVisible"
+          class="toggle-btn"
+          @click="toggleShowAll"
+        >
+          {{ showAll ? 'Show less' : 'Show all' }}
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { inject } from 'vue';
+import { inject, ref } from 'vue';
 import FolderItem from './FolderItem.vue';
 const props = defineProps(['important', 'apps', 'folders', 'name'])
 
 const fatherApp = inject('fatherApp')
 
+const showAll = ref(false)
+const maxVisible = 7
+
+function toggleShowAll() {
+  showAll.value = !showAll.value
+}
 </script>
 
 <style scoped>
@@ -73,6 +93,14 @@ const fatherApp = inject('fatherApp')
     padding: 15px;
     font-size: 14px;
     font-family: 'Arial', sans-serif;
+    color: #014AB5;
+  }
+
+  .section-content .toggle-btn{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 12px;
     color: #014AB5;
   }
 

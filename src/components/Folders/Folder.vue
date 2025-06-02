@@ -7,7 +7,7 @@
         :style="{ width: maximize === false ? '20%' : '30%', height: '100%' }"
         :folders="folders"
       />
-      <div :class="['folder-main', { view: view }]">
+      <div class="folder-main">
         <component v-if="view" :is="DynamicView" :view="view" :maximize="maximize" :icon="app.icon"/>
         <div v-else class="row ms-1 me-1">
           <FolderItem 
@@ -60,7 +60,7 @@ const DynamicView = computed(() => {
 .folder-main {
   flex: 1;
   background-color: #ffffff;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
 }
 </style>

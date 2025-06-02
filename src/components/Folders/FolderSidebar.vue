@@ -27,5 +27,6 @@ const appsData = inject('appsData');
   .sidebar {
     background-color: #6375D6;
     background: linear-gradient(180deg, #7AA1E6, #6375D6);
+    overflow: auto;
   }
 </style>

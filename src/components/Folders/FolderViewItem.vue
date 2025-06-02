@@ -1,35 +1,26 @@
 <template>
-  <button 
-    class="d-flex align-items-center"
-    @click="onButtonClick"
+  <a 
+    :href="section?.redirect"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="d-flex align-items-center redirect-class"
   >
-      <img :src="`/src/assets/icons/${section?.icon}`" alt="" :width="icon_size">
-      <div class="ms-1 texts">
-        <p 
-          :class="[
-            'm-0 p-0',
-            { 'important-name': important, 'highlight-name': highlight }
-          ]"
-        >
-          {{ section?.name }}
-        </p>
-        <div v-if="no_description == null || !no_description">
-          <p class="description m-0 p-0">{{ section?.description }}</p>
-          <p class="description m-0 p-0">{{ section?.subdescription }}</p>
-        </div>
+    <img :src="`/src/assets/icons/${app?.icon || section?.icon}`" :width="icon_size">
+    <div class="ms-1 texts">
+      <p :class="['m-0 p-0', { 'important-name': important, 'highlight-name': highlight }]">
+        {{ app?.name || section?.name }}
+      </p>
+      <div v-if="no_description == null || !no_description">
+        <p class="description m-0 p-0">{{ app?.description || section?.description }}</p>
+        <p class="description m-0 p-0">{{ section?.subdescription }}</p>
       </div>
-  </button>
+    </div>
+  </a>
 </template>
 
 <script setup>
 
 const props = defineProps(['section', 'important', 'highlight', 'icon_size', 'no_description'])
-
-function onButtonClick() {
-  if (props.section.redirect) {
-    window.open(props.section.redirect, '_blank');
-  }
-}
 
 </script>
 
@@ -40,6 +31,10 @@ button {
   border: 0;
   background-color: rgba(255, 255, 255, 0);
   text-align: start;
+}
+
+.redirect-class {
+  text-decoration: none;
 }
 
 .important-name {

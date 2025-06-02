@@ -1,23 +1,42 @@
 <template>
-  <button 
+  <a 
+    v-if="folder?.redirect"
+    :href="folder?.redirect"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="d-flex align-items-center redirect-class"
+  >
+    <img :src="`/src/assets/icons/${app?.icon || folder?.icon}`" :width="icon_size">
+    <div class="ms-1 texts">
+      <p :class="['m-0 p-0', { 'important-name': important, 'highlight-name': highlight }]">
+        {{ app?.name || folder?.name }}
+      </p>
+      <div v-if="no_description == null || !no_description">
+        <p class="description m-0 p-0">{{ app?.description || folder?.description }}</p>
+        <p class="description m-0 p-0">{{ folder?.subdescription }}</p>
+      </div>
+    </div>
+  </a>
+  <button
+    v-else
     class="d-flex align-items-center"
     @click="onButtonClick"
   >
-      <img :src="`/src/assets/icons/${app?.icon || folder?.icon}`" alt="" :width="icon_size">
-      <div class="ms-1 texts">
-        <p 
-          :class="[
-            'm-0 p-0',
-            { 'important-name': important, 'highlight-name': highlight }
-          ]"
-        >
-          {{ app?.name || folder?.name }}
-        </p>
-        <div v-if="no_description == null || !no_description">
-          <p class="description m-0 p-0">{{ app?.description || folder?.description }}</p>
-          <p class="description m-0 p-0">{{ folder?.subdescription }}</p>
-        </div>
+    <img :src="`/src/assets/icons/${app?.icon || folder?.icon}`" alt="" :width="icon_size">
+    <div class="ms-1 texts">
+      <p 
+        :class="[
+          'm-0 p-0',
+          { 'important-name': important, 'highlight-name': highlight }
+        ]"
+      >
+        {{ app?.name || folder?.name }}
+      </p>
+      <div v-if="no_description == null || !no_description">
+        <p class="description m-0 p-0">{{ app?.description || folder?.description }}</p>
+        <p class="description m-0 p-0">{{ folder?.subdescription }}</p>
       </div>
+    </div>
   </button>
 </template>
 
@@ -38,12 +57,7 @@ function onButtonClick() {
     openApp(props.app)
     return
   }
-
-  if (props.folder.redirect) {
-    window.open(props.folder.redirect, '_blank');
-  }
 }
-
 </script>
 
 <style scoped>
@@ -53,6 +67,13 @@ button {
   border: 0;
   background-color: rgba(255, 255, 255, 0);
   text-align: start;
+}
+
+.redirect-class {
+  text-decoration: none;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  color: black;
 }
 
 .important-name {

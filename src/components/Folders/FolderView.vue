@@ -1,26 +1,28 @@
 <template>
-  <div class="folder-view" :style="backgroundStyle">
+  <div class="folder-view">
     <div class="background-image"></div>
 
-    <h1 class="fw-bold">{{ view.title }}</h1>
-    <p>{{ view.description  }}</p>
-
-    <div v-if="view.image" class="mt-5 d-flex w-100 justify-content-center align-items-center">
-      <img :src="`/src/assets/images/${view.image}`" alt="">
-      <div class="d-flex flex-column align-items-start justify-content-center">
-        <p class="image-text">{{ view.image_description }}</p>
-        <p class="image-subtext">{{ view.image_subdescription }}</p>
+    <div class="folder-view-content">
+      <h1 class="fw-bold">{{ view.title }}</h1>
+      <p>{{ view.description  }}</p>
+  
+      <div v-if="view.image" class="mt-5 d-flex w-100 justify-content-center align-items-center">
+        <img :src="`/src/assets/images/${view.image}`" alt="">
+        <div class="d-flex flex-column align-items-start justify-content-center">
+          <p class="image-text">{{ view.image_description }}</p>
+          <p class="image-subtext">{{ view.image_subdescription }}</p>
+        </div>
       </div>
-    </div>
-    <div v-if="view.sections" class="row mt-3 ms-1 me-1">
-      <FolderViewItem 
-        v-for="(section, index) in view.sections"
-        :class="['mt-1', 'mb-1', maximize === false ? 'col-4' : 'col-6']"
-        :section="section"
-        :important="true"
-        :highlight="true"
-        :icon_size="'48px'"
-      />
+      <div v-if="view.sections" class="row mt-3 ms-1 me-1">
+        <FolderViewItem 
+          v-for="(section, index) in view.sections"
+          :class="['mt-1', 'mb-1', maximize === false ? 'col-4' : 'col-6']"
+          :section="section"
+          :important="true"
+          :highlight="true"
+          :icon_size="'48px'"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -39,6 +41,13 @@ const props = defineProps(['view', 'maximize', 'icon'])
   background-color: #6375D6;
   width: 100%;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.folder-view-content {
+  position: relative;
+  overflow: auto;
 }
 
 .background-image {

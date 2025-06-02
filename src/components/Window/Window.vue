@@ -5,13 +5,19 @@
       top: maximize ? position.y + 'px' : '0px', 
       left: maximize ? position.x + 'px' : '0px',
       width: maximize ? '50%' : '100%',
-      height: maximize ? '80%' : 'calc(100% - 40px)' 
+      height: maximize ? '80%' : 'calc(100% - 40px)', 
+      borderTopRightRadius: maximize ? '7px' : '0px', 
+      borderTopLeftRadius: maximize ? '7px' : '0px', 
     }"
     ref="windowRef"
     @mousedown="selectApp(props.app)"
   >
     <div 
       class="header d-flex align-items-center justify-content-between"
+      :style="{ 
+          borderTopRightRadius: maximize ? '7px' : '0px', 
+          borderTopLeftRadius: maximize ? '7px' : '0px', 
+      }"
       @mousedown="startDrag"
     >
       <div class="ms-1 d-flex header-name align-items-center">
