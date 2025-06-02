@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="footer d-flex align-items-center justify-content-end">
-      <button class="home-footer-button" @click="toggleUserLogin()">
+      <button class="home-footer-button" @click="() => {isMenuHided = true, toggleUserLogin()}">
         <img src="@icons/logout.png" alt="" width="28px">
         Log Off
       </button>
@@ -35,6 +35,8 @@ import HomeRightSide from './HomeRightSide.vue';
 
 const props = defineProps(['left_items', 'right_items'])
 const toggleUserLogin = inject('toggleUserLogin')
+const isMenuHided = inject('isMenuHided')
+
 </script>
 
 <style scoped>
@@ -66,7 +68,7 @@ const toggleUserLogin = inject('toggleUserLogin')
   height: 4px;
   width: 100%;
   background: #FFFF;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(198, 150, 109, 1) 50%, rgba(211, 229, 251, 1) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, #c6966d 50%, rgba(211, 229, 251, 1) 100%);
 }
 
 .footer {

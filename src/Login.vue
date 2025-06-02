@@ -9,7 +9,7 @@
         <p class="mt-2 me-3">To begin, click your user name</p>
       </div>
       <div class="vertical-hr"></div>
-      <button class="w-100 d-flex user" @click="login">
+      <button class="w-100 d-flex user" @click="login" :disabled="busy">
         <img class="pfp" src="@assets/images/kevin-pfp.jpg" alt="" width="64px">
         <div class="ms-3 d-flex flex-column align-items-start">
           <p class="m-0 p-0">Kevin Villagrán</p>
@@ -28,6 +28,8 @@ const busy = ref(false);
 const toggleUserLogin = inject('toggleUserLogin')
 
 function login() {
+  if (busy.value) return;
+
   busy.value = true;
 
   setTimeout(() => {
@@ -48,6 +50,22 @@ function login() {
     flex-direction: column;
   }
 
+  .login hr {
+    height: 2px;
+    opacity: 1;
+    border: none;
+  }
+
+  .login hr:first-of-type {
+    background: #FFFF;
+    background: linear-gradient(90deg, #00309C 0%, rgb(255, 255, 255) 50%, #00309C 100%);
+  }
+
+  .login hr:last-of-type {
+    background: #FFFF;
+    background: linear-gradient(90deg, #00309C 0%, #c6966d 50%, #00309C 100%);
+  }
+
   .login button {
     background-color: rgba(0, 0, 0, 0);
     border: none;
@@ -64,7 +82,7 @@ function login() {
     color: #00309C;
   }
 
-  .login button img:hover{
+  .login button:hover img{
     border: 2px solid #D9C65A;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.442);
   }

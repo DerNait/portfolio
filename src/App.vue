@@ -58,10 +58,11 @@ import Login from './Login.vue';
 const appsData = ref(Apps);
 provide('appsData', appsData);
 
-const login = ref(false);
+const login = ref(sessionStorage.getItem('login') === 'true');
 
 function toggleUserLogin() {
   login.value = !login.value;
+  sessionStorage.setItem('login', login.value);
 }
 provide('toggleUserLogin', toggleUserLogin)
 
