@@ -8,17 +8,7 @@
         :folders="folders"
       />
       <div :class="['folder-main', { view: view }]">
-        <div
-          v-if="view"
-          class="background-image"
-          :style="{
-            backgroundImage: `url('/src/assets/icons/${view.background}')`
-          }"
-        ></div>
-
-        <div v-if="view">
-          <FolderView :view="view" :maximize="maximize" />
-        </div>
+        <component v-if="view" :is="DynamicView" :view="view" :maximize="maximize" :icon="app.icon"/>
         <div v-else class="row ms-1 me-1">
           <FolderItem 
             v-for="(folder, index) in folders"
@@ -34,21 +24,25 @@
 </template>
 
 <script setup>
-import { inject, provide } from 'vue'
+import { inject, provide, computed } from 'vue'
 import FolderHeader from './FolderHeader.vue'
 import FolderSidebar from './FolderSidebar.vue'
 import FolderItem from './FolderItem.vue'
 import FolderView from './FolderView.vue'
+import ViewComponents from '../ViewComponents'
 
 const props = defineProps(['app', 'name', 'sidebar_sections', 'folders', 'view'])
 const maximize = inject('maximize')
 
 provide('fatherApp', props.app)
 
+const DynamicView = computed(() => {
+  const componentName = props.view?.component
+  return ViewComponents[componentName] || FolderView
+})
 </script>
 
 <style scoped>
-
 .folder-container {
   display: flex;
   flex-direction: column;
@@ -69,28 +63,4 @@ provide('fatherApp', props.app)
   overflow: hidden;
   position: relative;
 }
-
-.view {
-  background-color: #6375D6;
-}
-
-.background-image {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 400px;
-  height: 400px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  filter: grayscale(100%);
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.folder-main > *:not(.background-image) {
-  position: relative;
-  z-index: 1;
-}
-
 </style>
