@@ -1,35 +1,35 @@
 <template>
   <FolderItem
     class="mt-2 " 
-    :folder="folder"
+    :folder="myDocuments"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
   <FolderItem
     class=" " 
-    :folder="folder"
+    :folder="myRecentDocuments"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
   <FolderItem 
     class=""
-    :folder="folder"
+    :folder="myPictures"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
   <FolderItem 
     class=" "
-    :folder="folder"
+    :folder="myMusic"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
   <FolderItem 
     class=" " 
-    :folder="folder"
+    :folder="myComputer"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
@@ -37,7 +37,7 @@
  <div class="separator"></div>
   <FolderItem 
     class=" "
-    :folder="folder"
+    :folder="controlPanel"
     :icon_size="'32px'"
     :highlight="true"
   />
@@ -50,38 +50,63 @@
   />
   <FolderItem 
     class=" "
-    :folder="folder"
+    :folder="programAccess"
+    :icon_size="'32px'"
+    :highlight="true"
+  />
+  <FolderItem 
+    class=" "
+    :folder="printersFaxes"
     :icon_size="'32px'"
     :highlight="true"
   />
   <div class="separator"></div>
   <FolderItem 
     class=" "
-    :folder="folder"
+    :folder="helpSupport"
     :icon_size="'32px'"
     :highlight="true"
   />
   <FolderItem 
     class=" "
-    :folder="folder"
+    :folder="search"
     :icon_size="'32px'"
     :highlight="true"
   />
   <FolderItem 
     class=" "
-    :folder="folder"
+    :folder="run"
     :icon_size="'32px'"
     :highlight="true"
   />
 </template>
 
 <script setup>
+import ControlPanel from '../../data/home/ControlPanel';
+import HelpSupport from '../../data/home/HelpSupport';
+import MyComputer from '../../data/home/MyComputer';
+import MyDocuments from '../../data/home/MyDocuments';
+import MyMusic from '../../data/home/MyMusic';
+import MyPictures from '../../data/home/MyPictures';
+import MyRecentDocuments from '../../data/home/MyRecentDocuments';
+import PrintersFaxes from '../../data/home/PrintersFaxes';
+import ProgramAccess from '../../data/home/ProgramAccess';
+import Run from '../../data/home/Run';
+import Search from '../../data/home/Search';
+
 import FolderItem from '../Folders/FolderItem.vue';
 
-const folder = {
-  name: 'Internet',
-  icon: 'folder.png'
-}
+const controlPanel = ControlPanel;
+const helpSupport = HelpSupport;
+const myComputer = MyComputer;
+const myDocuments = MyDocuments;
+const myMusic = MyMusic;
+const myPictures = MyPictures;
+const myRecentDocuments = MyRecentDocuments;
+const printersFaxes = PrintersFaxes;
+const programAccess = ProgramAccess;
+const run = Run;
+const search = Search; 
 
 </script>
 

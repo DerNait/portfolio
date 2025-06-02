@@ -14,8 +14,10 @@
       >
         <template #default="{ maximize }">
           <Folder
-            :name="app.name" 
+            :name="app.name"
+            :app="app"
             :folders="app.folders"
+            :view="app.view"
             :maximize="maximize"
           />
         </template>
@@ -45,7 +47,6 @@ import Window from './components/Window/Window.vue';
 import HomeWrapper from './components/Home/HomeWrapper.vue';
 import Folder from './components/Folders/Folder.vue';
 
-//Data
 import Apps from '@data/apps/Apps';
 
 const appsData = ref(Apps);
@@ -57,56 +58,6 @@ provide('isMenuHided', isMenuHided)
 const openedApps = ref([])
 provide('openedApps', openedApps)
 
-/* const openedApps = ref([
-  {
-    id: 1,
-    name: 'Probando esto',
-    description: 'Testing the layout',
-    icon: 'pinball.png',
-    show: true,
-    folders: [
-      {
-        name: 'Probando el name',
-        description: 'Esta sería la descripción en sí del proyecto',
-        icon: 'pinball.png',
-      },
-      {
-        name: 'Probando el windows',
-        description: 'Esta sería la descripción en sí del proyecto',
-        icon: 'windows-xp-logo.png',
-      },
-      {
-        name: 'Probando el folder',
-        description: 'Esta sería la descripción en sí del proyecto',
-        icon: 'folder.png',
-      },
-    ]
-  },
-  {
-    id: 2,
-    name: 'Probando esto 2',
-    description: 'Testing the layout',
-    icon: 'pinball.png',
-    show: true,
-    folders: [
-      {
-        name: 'Probando el name',
-        description: 'Esta sería la descripción en sí del proyecto',
-        icon: 'pinball.png',
-      },
-      {
-        name: 'Probando el windows',
-        description: 'Esta sería la descripción en sí del proyecto',
-        icon: 'windows-xp-logo.png',
-      },
-      {
-        name: 'Probando el folder',
-        description: 'Esta sería la descripción en sí del proyecto',
-        icon: 'folder.png',
-      },
-    ]
-  },
-]) */
 const selectedApp = ref(openedApps.value[0])
 provide ('selectedApp', selectedApp)
 
@@ -150,4 +101,17 @@ function openApp(app) {
   selectApp(newApp)
 }
 provide('openApp', openApp)
+
+function replaceApp(prevApp, newApp) {
+  const index = openedApps.value.findIndex(app => app.id === prevApp.id);
+  
+  if (index !== -1) {
+    openedApps.value[index] = {
+      ...newApp,
+      id: prevApp.id,
+      show: true
+    };
+  }
+}
+provide('replaceApp', replaceApp)
 </script>

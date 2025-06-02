@@ -37,8 +37,8 @@ function onOpenApp() {
 }
 
 .desktop-icon img {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
 

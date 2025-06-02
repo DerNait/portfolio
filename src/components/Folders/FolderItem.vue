@@ -24,12 +24,12 @@
 <script setup>
 import { inject } from 'vue';
 
-const props = defineProps(['app', 'folder', 'important', 'highlight', 'icon_size', 'no_description'])
-const openApp = inject('openApp')
+const props = defineProps(['father_app', 'app', 'folder', 'important', 'highlight', 'icon_size', 'no_description'])
+const replaceApp = inject('replaceApp')
 
 function onButtonClick() {
-  if (props.app) {
-    openApp(props.app)
+  if (props.father_app && props.app) {
+    replaceApp(props.father_app, props.app)
     return
   }
 

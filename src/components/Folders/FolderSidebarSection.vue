@@ -12,6 +12,7 @@
         <FolderItem
           v-for="(app, index) in apps" 
           :name="app.name"
+          :father_app="fatherApp"
           :app="app"
           :icon_size="'24px'"
           :highlight="true"
@@ -33,9 +34,11 @@
 </template>
 
 <script setup>
+import { inject } from 'vue';
 import FolderItem from './FolderItem.vue';
 const props = defineProps(['important', 'apps', 'folders', 'name'])
 
+const fatherApp = inject('fatherApp')
 
 </script>
 

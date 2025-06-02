@@ -43,17 +43,18 @@
       </div>
     </div>
     <div class="window-content">
-      <slot :maximize="maximize" />
+      <slot />
     </div>
   </div>
 </template>
 
 <script setup>
-import { inject, ref } from 'vue'
+import { inject, provide, ref } from 'vue'
 import HeaderButton from './HeaderButton.vue';
 
 const props = defineProps(['app', 'is_selected'])
 const maximize = ref(['false']);
+provide('maximize', maximize)
 
 const hideWindow = inject('hideWindow')
 function execHideWindow() {
