@@ -1,57 +1,22 @@
 <template>
-  <FolderItem
-    class="mt-2 mb-2" 
-    :name="'Internet'"
-    :description="'Internet explorer'"
-    :icon="'folder.png'"
-    :icon_size="'40px'"
-    :important="true"
-  />
-  <FolderItem
-    class=" mb-2" 
-    :name="'Internet'"
-    :description="'Internet explorer'"
-    :icon="'folder.png'"
-    :icon_size="'40px'"
-    :important="true"
-  />
-  <div class="separator"></div>
-  <FolderItem 
-    class="mb-2"
-    :name="'Internet'"
-    :icon="'folder.png'"
-    :icon_size="'40px'"
-    :important="true"
-  />
-  <FolderItem 
-    class=" mb-2"
-    :name="'Internet'"
-    :icon="'folder.png'"
-    :icon_size="'40px'"
-    :important="true"
-  />
-  <FolderItem 
-    class=" mb-2" 
-    :name="'Internet'"
-    :icon="'folder.png'"
-    :icon_size="'40px'"
-    :important="true"
-  />
-  <FolderItem 
-    class=" mb-2"
-    :name="'Internet'"
-    :icon="'folder.png'"
-    :icon_size="'40px'"
-    :important="true"
-  />
-  <FolderItem 
-    class=" mb-2"
-    :name="'Internet'"
-    :icon="'folder.png'"
-    :icon_size="'40px'"
-    :important="true"
-  />
-  <div class="separator"></div>
+  <template v-for="(app, index) in appsData" :key="app.id">
+    <FolderItem
+      class="mt-2 mb-2"
+      :app="app"
+      :icon_size="'40px'"
+      :important="true"
+    />
+    <div 
+      v-if="index === 2" 
+      class="separator"
+    >
+    </div>
+    <div 
+      v-if="index === 5" 
+      class="separator"
+    >
+    </div>
+  </template>
   <div class="all-programs">
     All Programs
     <img src="@icons/folder.png" alt="" width="40px">
@@ -59,7 +24,10 @@
 </template>
 
 <script setup>
+import { inject } from 'vue';
 import FolderItem from '../Folders/FolderItem.vue';
+
+const appsData = inject('appsData');
 
 </script>
 

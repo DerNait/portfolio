@@ -1,12 +1,24 @@
 <template>
-  <div class="desktop-icon">
-    <img :src="`/src/assets/icons/${icon}`" alt="icon" />
-    <p>Probando mas texto para ver</p>
-  </div>
+  <button 
+    class="desktop-icon"
+    @click="onOpenApp"
+  >
+    <img :src="`/src/assets/icons/${app.icon}`" alt="icon" />
+    <p>{{ app.name }}</p>
+  </button>
 </template>
 
 <script setup>
-  const props = defineProps(['icon']);
+import { inject } from 'vue';
+
+const props = defineProps(['app'])
+
+const openedApps = inject('openedApps')
+const openApp = inject('openApp')
+
+function onOpenApp() {
+  openApp(props.app)
+}
 </script>
 
 <style scoped>
@@ -20,6 +32,8 @@
   text-align: center;
   user-select: none;
   cursor: pointer;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .desktop-icon img {

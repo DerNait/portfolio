@@ -1,45 +1,35 @@
 <template>
   <FolderItem
     class="mt-2 " 
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
   <FolderItem
     class=" " 
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
   <FolderItem 
     class=""
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
   <FolderItem 
     class=" "
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
   />
   <FolderItem 
     class=" " 
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
     :important="true"
     :highlight="true"
@@ -47,61 +37,51 @@
  <div class="separator"></div>
   <FolderItem 
     class=" "
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
     :highlight="true"
   />
   <FolderItem 
     class=" "
     :name="'Internet getting very very explored'"
-    
     :icon="'folder.png'"
     :icon_size="'32px'"
     :highlight="true"
   />
   <FolderItem 
     class=" "
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
     :highlight="true"
   />
   <div class="separator"></div>
   <FolderItem 
     class=" "
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
     :highlight="true"
   />
   <FolderItem 
     class=" "
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
-    
     :highlight="true"
   />
   <FolderItem 
     class=" "
-    :name="'Internet'"
-    
-    :icon="'folder.png'"
+    :folder="folder"
     :icon_size="'32px'"
-    
     :highlight="true"
   />
-
-
 </template>
 
 <script setup>
 import FolderItem from '../Folders/FolderItem.vue';
+
+const folder = {
+  name: 'Internet',
+  icon: 'folder.png'
+}
 
 </script>
 

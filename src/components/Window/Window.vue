@@ -35,7 +35,11 @@
           :is_selected="is_selected"
           :on_button_clicked="toggleMaximizeWindow"
         />
-        <HeaderButton :icon="'close.png'" :is_selected="is_selected" class="me-1"/>
+        <HeaderButton 
+          :icon="'close.png'" 
+          :is_selected="is_selected"
+          :on_button_clicked="execCloseApp" 
+          class="me-1"/>
       </div>
     </div>
     <div class="window-content">
@@ -55,6 +59,13 @@ const hideWindow = inject('hideWindow')
 function execHideWindow() {
   if (hideWindow) {
     hideWindow(props.app.id)
+  }
+}
+
+const closeApp = inject('closeApp')
+function execCloseApp() {
+  if (closeApp) {
+    closeApp(props.app.id)
   }
 }
 

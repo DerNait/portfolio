@@ -43,7 +43,7 @@
       <div class="address ms-1">
         <div class="d-flex align-items-center">
           <img src="@icons/folder.png" alt="">
-          <p class="m-0 p-0">C:\route\test.html</p>
+          <p class="m-0 p-0">C:\User\Documents\{{ name }}</p>
         </div>
         <div>
           <img src="@icons/folder.png" alt="">
@@ -57,76 +57,82 @@
   </div>
 </template>
 
+<script setup>
+
+const props = defineProps(['name'])
+
+</script>
+
 <style scoped>
-  .header {
-    width: 100%;
-    height: 100px;
-    background-color: #EEEBD3;
-    background: linear-gradient(90deg, #F2F4F2 0%, #EEEBD3 100%);
-    font-family: 'Tahoma', sans-serif;
-    color: #C6C5BC;
-  }
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: #EEEBD3;
+  background: linear-gradient(90deg, #F2F4F2 0%, #EEEBD3 100%);
+  font-family: 'Tahoma', sans-serif;
+  color: #C6C5BC;
+}
 
-  .subheader {
-    width: 100%;
-    border-bottom: 1px solid #E5E1D5;
-    border-top: 1px solid #F5F5EF;
-  }
+.subheader {
+  width: 100%;
+  border-bottom: 1px solid #E5E1D5;
+  border-top: 1px solid #F5F5EF;
+}
 
-  .first-header {
-    height: 25px;
-    font-size: 13px;
-  }
-  .second-header {
-    height: 45px;
-  }
-  .third-header {
-    height: 30px;
-    font-size: 13px;
-  }
+.first-header {
+  height: 25px;
+  font-size: 13px;
+}
+.second-header {
+  height: 45px;
+}
+.third-header {
+  height: 30px;
+  font-size: 13px;
+}
 
-  .third-header img {
-    width: 18px;
-    margin: 0 2px;
-  }
+.third-header img {
+  width: 18px;
+  margin: 0 2px;
+}
 
-  .windows-logo {
-    width: 45px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-left: 1px solid #E5E1D5;
-  }
+.windows-logo {
+  width: 45px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-left: 1px solid #E5E1D5;
+}
 
-  .lower-header-buttons {
-    height: 100%;
-    border: none;
-    border-right: 1px solid #E5E1D5;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: 14px;
-  }
+.lower-header-buttons {
+  height: 100%;
+  border: none;
+  border-right: 1px solid #E5E1D5;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 14px;
+}
 
-  .lower-header-buttons img {
-    width: 32px;
-  }
+.lower-header-buttons img {
+  width: 32px;
+}
 
-  .last {
-    justify-content: start;
-  }
+.last {
+  justify-content: start;
+}
 
-  .address {
-    width: 85%;
-    height: 90%;
-    background-color: white;
-    border: 1px solid #B3C4D4;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.address {
+  width: 85%;
+  height: 90%;
+  background-color: white;
+  border: 1px solid #B3C4D4;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 </style>
