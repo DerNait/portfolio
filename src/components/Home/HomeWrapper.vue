@@ -16,8 +16,14 @@
       </div>
     </div>
     <div class="footer d-flex align-items-center justify-content-end">
-      <img src="@icons/shutdown.png" alt="" width="28px" class="me-1">
-      Turn Off Computer
+      <button class="home-footer-button">
+        <img src="@icons/logout.png" alt="" width="28px">
+        Log Off
+      </button>
+      <button class="home-footer-button">
+        <img src="@icons/shutdown.png" alt="" width="28px">
+        Turn Off Computer
+      </button>
     </div>
   </div>
 </template>
@@ -98,6 +104,15 @@ const props = defineProps(['left_items', 'right_items'])
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.367);
   margin-left: 8px;
+}
+
+.home-footer-button {
+  border: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: Tahoma, sans-serif;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.275);
+  margin: 0 2px;
 }
 </style>
 

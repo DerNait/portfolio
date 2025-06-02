@@ -5,6 +5,7 @@
     <div class="folder-body">
       <FolderSidebar 
         :style="{ width: props.maximize === false ? '20%' : '30%', height: '100%' }"
+        :folders="folders"
       />
 
       <div class="folder-main">

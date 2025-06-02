@@ -13,8 +13,10 @@
         >
           {{ app?.name || folder?.name }}
         </p>
-        <p class="description m-0 p-0">{{ app?.description || folder?.description }}</p>
-        <p class="description m-0 p-0">{{ folder?.subdescription }}</p>
+        <div v-if="no_description == null || !no_description">
+          <p class="description m-0 p-0">{{ app?.description || folder?.description }}</p>
+          <p class="description m-0 p-0">{{ folder?.subdescription }}</p>
+        </div>
       </div>
   </button>
 </template>
@@ -22,7 +24,7 @@
 <script setup>
 import { inject } from 'vue';
 
-const props = defineProps(['app', 'folder', 'important', 'highlight', 'icon_size'])
+const props = defineProps(['app', 'folder', 'important', 'highlight', 'icon_size', 'no_description'])
 const openApp = inject('openApp')
 
 function onButtonClick() {

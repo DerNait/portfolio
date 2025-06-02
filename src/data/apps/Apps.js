@@ -1,3 +1,5 @@
+import AboutMe from "./About Me/AboutMe";
+import Contact from "./Contact/Contact";
 import Experience from "./Experience/Experience";
 import MyGames from "./MyGames/MyGames";
 import MyProjects from "./MyProjects/MyProjects";
@@ -7,5 +9,7 @@ export default [
     MyProjects,
     Experience,
     Skills,
-    MyGames
+    MyGames,
+    AboutMe,
+    Contact
 ]

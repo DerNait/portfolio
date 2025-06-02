@@ -1,19 +1,26 @@
 <template>
   <div class="sidebar p-3">
-    <FolderSidebarSection :important="true" :name="`File and Folder Tasks`" :content="test"/>
+    <FolderSidebarSection 
+      :important="true" 
+      :name="`File and Folder Tasks`" 
+      :folders="folders"
+    />
+
+    <FolderSidebarSection 
+      :important="false" 
+      :name="`Other Places`" 
+      :apps="appsData"
+    />
   </div>
 </template>
 
 <script setup>
-  import FolderItem from './FolderItem.vue';
-  import FolderSidebarSection from './FolderSidebarSection.vue';
+  import { inject } from 'vue';
+import FolderSidebarSection from './FolderSidebarSection.vue';
 
-  const test = [
-      {
-        name: 'Testing this',
-        icon: 'folder.png'
-      }
-    ]
+const props = defineProps(['folders']);
+const appsData = inject('appsData');
+
 </script>
 
 <style scoped>

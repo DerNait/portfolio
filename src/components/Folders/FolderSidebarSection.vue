@@ -1,26 +1,42 @@
 <template>
-    <div class="section-window">
-      <div :class="`section-header` + headerClass()">
-        {{ name }}
+  <div class="section-window">
+    <div :class="['section-header', { light: !important }]">
+      {{ name }}
+    </div>
+    
+    <div 
+      v-if="apps || folders" 
+      :class="['section-content', { main: important }]"
+    >
+      <div v-if="apps">
+        <FolderItem
+          v-for="(app, index) in apps" 
+          :name="app.name"
+          :app="app"
+          :icon_size="'24px'"
+          :highlight="true"
+          :no_description="true"
+        />
       </div>
-      <div :class="`section-content` + contentClass()" v-if="content">
-        <FolderItem :name="content[0].name" :folder="content[0]" :icon_size="'24px'" :highlight="true"/>
+      <div v-else>
+        <FolderItem
+          v-for="(folder, index) in folders" 
+          :name="folder.name"
+          :folder="folder"
+          :icon_size="'24px'"
+          :highlight="true"
+          :no_description="true"
+        />
       </div>
     </div>
+  </div>
 </template>
 
 <script setup>
-  import FolderItem from './FolderItem.vue';
+import FolderItem from './FolderItem.vue';
+const props = defineProps(['important', 'apps', 'folders', 'name'])
 
-  const props = defineProps(['important', 'content', 'name'])
 
-  function headerClass() {
-    return props.important ? '' : ' light';
-  }
-
-  function contentClass() {
-    return props.important ? ' main' : '';
-  }
 </script>
 
 <style scoped>
