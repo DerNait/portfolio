@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="footer d-flex align-items-center justify-content-end">
-      <button class="home-footer-button">
+      <button class="home-footer-button" @click="toggleUserLogin()">
         <img src="@icons/logout.png" alt="" width="28px">
         Log Off
       </button>
@@ -29,10 +29,12 @@
 </template>
 
 <script setup>
+import { inject } from 'vue';
 import HomeLeftSide from './HomeLeftSide.vue';
 import HomeRightSide from './HomeRightSide.vue';
 
 const props = defineProps(['left_items', 'right_items'])
+const toggleUserLogin = inject('toggleUserLogin')
 </script>
 
 <style scoped>

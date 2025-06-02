@@ -1,42 +1,47 @@
 <template>
-  <transition name="hide-menu">
-    <HomeWrapper 
-      v-if="!isMenuHided"
-      class="home-bar"
-    />
-  </transition>
-  <div v-for="(app, index) in openedApps" :key="app.id">
-    <transition name="minimize-window">
-      <Window
-        v-show="app.show"
-        :app="app"
-        :is_selected="isSelected(app)"
-      >
-        <template #default="{ maximize }">
-          <Folder
-            :name="app.name"
-            :app="app"
-            :folders="app.folders"
-            :view="app.view"
-            :maximize="maximize"
-          />
-        </template>
-      </Window>
+  <template v-if="!login">
+    <Login />
+  </template>
+  <template v-else>
+    <transition name="hide-menu">
+      <HomeWrapper 
+        v-if="!isMenuHided"
+        class="home-bar"
+      />
     </transition>
-  </div>
-  <div class="desktop-grid">
-    <DesktopIcon
-      v-for="(app, index) in appsData"
-      :key="app.id"
-      :app="app"
-      :style="`grid-column: ${1 + Math.floor(index / 7)}; grid-row: ${(index % 7) + 1};`"
+    <div v-for="(app, index) in openedApps" :key="app.id">
+      <transition name="minimize-window">
+        <Window
+          v-show="app.show"
+          :app="app"
+          :is_selected="isSelected(app)"
+        >
+          <template #default="{ maximize }">
+            <Folder
+              :name="app.name"
+              :app="app"
+              :folders="app.folders"
+              :view="app.view"
+              :maximize="maximize"
+            />
+          </template>
+        </Window>
+      </transition>
+    </div>
+    <div class="desktop-grid">
+      <DesktopIcon
+        v-for="(app, index) in appsData"
+        :key="app.id"
+        :app="app"
+        :style="`grid-column: ${1 + Math.floor(index / 7)}; grid-row: ${(index % 7) + 1};`"
+      />
+    </div>
+    <Taskbar 
+      :opened_apps="openedApps"
+      :selected_app="selectedApp"
+      :is_menu_hided="isMenuHided"
     />
-  </div>
-  <Taskbar 
-    :opened_apps="openedApps"
-    :selected_app="selectedApp"
-    :is_menu_hided="isMenuHided"
-  />
+  </template>
 </template>
 
 <script setup>
@@ -48,9 +53,17 @@ import HomeWrapper from './components/Home/HomeWrapper.vue';
 import Folder from './components/Folders/Folder.vue';
 
 import Apps from '@data/apps/Apps';
+import Login from './Login.vue';
 
 const appsData = ref(Apps);
 provide('appsData', appsData);
+
+const login = ref(false);
+
+function toggleUserLogin() {
+  login.value = !login.value;
+}
+provide('toggleUserLogin', toggleUserLogin)
 
 const isMenuHided = ref(true);
 provide('isMenuHided', isMenuHided)
