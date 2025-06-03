@@ -16,25 +16,25 @@
     <div class="d-flex subheader second-header">
       <div class="lower-header-buttons" style="width: 25%;">
         <div class="d-flex align-items-center">
-          <img src="@icons/folder.png" alt="">
-          <p class="p-0 m-0">Back</p>
+          <img src="@icons/back.png" alt="">
+          <p class="ms-1 p-0 m-0">Back</p>
         </div>
-        <img src="@icons/folder.png" alt="">
-        <img src="@icons/folder.png" alt="">
+        <img src="@icons/forward.png" alt="">
+        <img src="@icons/up.png" alt="">
       </div>
       <div class="lower-header-buttons" style="width: 25%;">
         <div class="d-flex align-items-center">
-          <img src="@icons/lupa.png" alt="">
+          <img src="@icons/search.png" alt="">
           <p class="p-0 m-0">Search</p>
         </div>
         <div class="d-flex align-items-center">
-          <img src="@icons/Folder.png" alt="">
-          <p class="p-0 m-0">Search</p>
+          <img src="@icons/folder-view.png" alt="">
+          <p class="p-0 m-0">Folders</p>
         </div>
       </div>
       <div class="lower-header-buttons last" style="width: 75%;">
         <div class="d-flex align-items-center ms-1">
-          <img src="@icons/folder.png" alt="">
+          <img src="@icons/icon-view.png" alt="">
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="d-flex align-items-center">
-        <img src="@icons/folder.png" alt="" style="">
+        <img src="@icons/go.png" alt="" style="">
         <p class="m-0 p-0" style="color: black;">Go</p>
       </div>
     </div>

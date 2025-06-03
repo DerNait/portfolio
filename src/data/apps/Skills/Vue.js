@@ -1,5 +1,5 @@
 export default {
     name: 'Vue.js',
     description: 'Intermediate',
-    icon: 'vue.png'
+    icon: '/skills/vue.png'
 }

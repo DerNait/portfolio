@@ -1,39 +1,25 @@
 <template>
-  <div class="folder-view">
+  <div class="folder-view d-flex flex-column">
     <div class="background-image"></div>
 
-    <div class="folder-view-content">
-      <h1 class="fw-bold">{{ view.title }}</h1>
-      <p>{{ view.description  }}</p>
-  
-      <div v-if="view.image" class="mt-5 d-flex w-100 justify-content-center align-items-center">
-        <img :src="`/src/assets/images/${view.image}`" alt="">
-        <div class="d-flex flex-column align-items-start justify-content-center">
-          <p class="image-text">{{ view.image_description }}</p>
-          <p class="image-subtext">{{ view.image_subdescription }}</p>
-        </div>
-      </div>
-      <div v-if="view.sections" class="row mt-3 ms-1 me-1">
-        <FolderViewItem 
-          v-for="(section, index) in view.sections"
-          :class="['mt-1', 'mb-1', maximize === false ? 'col-4' : 'col-6']"
-          :section="section"
-          :important="true"
-          :highlight="true"
-          :icon_size="'48px'"
-        />
-      </div>
-    </div>
+    <component class="folder-view-content flex-grow-1" :is="DynamicView" :view="view" :maximize="maximize" />
   </div>
 </template>
 
 <script setup>
-import FolderViewItem from './FolderViewItem.vue';
+import { computed } from 'vue';
+import ViewComponents from '../ViewComponents'
+import Information from './Views/Information.vue';
+
+const DynamicView = computed(() => {
+  const componentName = props.view?.component
+  return ViewComponents[componentName] || Information
+})
 
 const props = defineProps(['view', 'maximize', 'icon'])
 </script>
 
-<style scoped>
+<style>
 .folder-view {
   padding: 20px;
   font-family: Tahoma, sans-serif;
@@ -46,7 +32,6 @@ const props = defineProps(['view', 'maximize', 'icon'])
 }
 
 .folder-view-content {
-  position: relative;
   overflow: auto;
 }
 
@@ -72,30 +57,35 @@ const props = defineProps(['view', 'maximize', 'icon'])
   z-index: 1;
 }
 
-.folder-view p {
+.folder-view-content .text {
   color: white;
   font-size: 14px;
 }
 
-.image-text {
+.folder-view-content .image {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.367);
+  width: 70%;
+}
+
+.folder-view-content .pfp-image {
+  width: 128px;
+  border: 4px solid white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.367);
+  margin-left: 8px;
+}
+
+.folder-view-content .image-text {
   margin: 0px 10px;
   color: #D6DFF5 !important;
   font-weight: bold;
   font-size: 32px !important;
 }
 
-.image-subtext {
+.folder-view-content .image-subtext {
   margin: 0px 10px;
   color: #D6DFF5 !important;
   font-weight: bold;
   font-size: 16px !important;
-}
-
-.folder-view img {
-  width: 128px;
-  border: 4px solid white;
-  border-radius: 5px;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.367);
-  margin-left: 8px;
 }
 </style>

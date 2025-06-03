@@ -1,84 +1,85 @@
 <template>
-  <FolderItem
-    class="mt-2 " 
-    :folder="myDocuments"
-    :icon_size="'32px'"
-    :important="true"
-    :highlight="true"
-  />
-  <FolderItem
-    class=" " 
-    :folder="myRecentDocuments"
-    :icon_size="'32px'"
-    :important="true"
-    :highlight="true"
-  />
-  <FolderItem 
-    class=""
-    :folder="myPictures"
-    :icon_size="'32px'"
-    :important="true"
-    :highlight="true"
-  />
-  <FolderItem 
-    class=" "
-    :folder="myMusic"
-    :icon_size="'32px'"
-    :important="true"
-    :highlight="true"
-  />
-  <FolderItem 
-    class=" " 
-    :folder="myComputer"
-    :icon_size="'32px'"
-    :important="true"
-    :highlight="true"
-  />
- <div class="separator"></div>
-  <FolderItem 
-    class=" "
-    :folder="controlPanel"
-    :icon_size="'32px'"
-    :highlight="true"
-  />
-  <FolderItem 
-    class=" "
-    :name="'Internet getting very very explored'"
-    :icon="'folder.png'"
-    :icon_size="'32px'"
-    :highlight="true"
-  />
-  <FolderItem 
-    class=" "
-    :folder="programAccess"
-    :icon_size="'32px'"
-    :highlight="true"
-  />
-  <FolderItem 
-    class=" "
-    :folder="printersFaxes"
-    :icon_size="'32px'"
-    :highlight="true"
-  />
-  <div class="separator"></div>
-  <FolderItem 
-    class=" "
-    :folder="helpSupport"
-    :icon_size="'32px'"
-    :highlight="true"
-  />
-  <FolderItem 
-    class=" "
-    :folder="search"
-    :icon_size="'32px'"
-    :highlight="true"
-  />
-  <FolderItem 
-    class=" "
-    :folder="run"
-    :icon_size="'32px'"
-    :highlight="true"
-  />
+  <div class="m-2">
+    <FolderItem
+      :folder="myDocuments"
+      :icon_size="'32px'"
+      :important="true"
+      :highlight="true"
+    />
+    <FolderItem
+      class=" " 
+      :folder="myRecentDocuments"
+      :icon_size="'32px'"
+      :important="true"
+      :highlight="true"
+    />
+    <FolderItem 
+      
+      :folder="myPictures"
+      :icon_size="'32px'"
+      :important="true"
+      :highlight="true"
+    />
+    <FolderItem 
+      class=" "
+      :folder="myMusic"
+      :icon_size="'32px'"
+      :important="true"
+      :highlight="true"
+    />
+    <FolderItem 
+      class=" " 
+      :folder="myComputer"
+      :icon_size="'32px'"
+      :important="true"
+      :highlight="true"
+    />
+   <div class="separator"></div>
+    <FolderItem 
+      class=" "
+      :folder="controlPanel"
+      :icon_size="'32px'"
+      :highlight="true"
+    />
+    <FolderItem 
+      class=" "
+      :name="'Internet getting very very explored'"
+      :icon="'folder.png'"
+      :icon_size="'32px'"
+      :highlight="true"
+    />
+    <FolderItem 
+      class=" "
+      :folder="programAccess"
+      :icon_size="'32px'"
+      :highlight="true"
+    />
+    <FolderItem 
+      class=" "
+      :folder="printersFaxes"
+      :icon_size="'32px'"
+      :highlight="true"
+    />
+    <div class="separator"></div>
+    <FolderItem 
+      class=" "
+      :folder="helpSupport"
+      :icon_size="'32px'"
+      :highlight="true"
+    />
+    <FolderItem 
+      class=" "
+      :folder="search"
+      :icon_size="'32px'"
+      :highlight="true"
+    />
+    <FolderItem 
+      class=" "
+      :folder="run"
+      :icon_size="'32px'"
+      :highlight="true"
+    />
+  </div>
 </template>
 
 <script setup>

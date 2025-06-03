@@ -1,5 +1,5 @@
 export default {
     name: 'React',
     description: 'Intermediate',
-    icon: 'react.png'
+    icon: '/skills/react.png'
 }

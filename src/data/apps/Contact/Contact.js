@@ -5,12 +5,12 @@ import Mail from "./Mail";
 
 export default {
     name: 'Contact',
-    icon: 'internet.png',
+    icon: 'messenger.png',
     description: 'Find different ways of contacting me',
     view: {
         title: 'Contact',
         description: 'You can reach me out with the following',
-        background: 'internet.png',
+        background: 'messenger.png',
         sections: [
             Mail,
             GitHub,

@@ -57,6 +57,10 @@ function onButtonClick() {
     openApp(props.app)
     return
   }
+
+  if (props.folder.view) {
+    replaceApp(props.father_app, props.folder)
+  }
 }
 </script>
 
@@ -67,6 +71,8 @@ button {
   border: 0;
   background-color: rgba(255, 255, 255, 0);
   text-align: start;
+  margin: 0;
+  padding: 0;
 }
 
 .redirect-class {
@@ -74,6 +80,8 @@ button {
   font-family: 'Tahoma', sans-serif;
   font-size: 12px;
   color: black;
+  margin: 0;
+  padding: 0;
 }
 
 .important-name {

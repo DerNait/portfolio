@@ -1,4 +1,4 @@
 export default {
     name: 'Help and Support',
-    icon: 'folder.png',
+    icon: '/home/help.png',
 }

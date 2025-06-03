@@ -1,4 +1,4 @@
 export default {
     name: 'Search',
-    icon: 'folder.png',
+    icon: 'search.png',
 }

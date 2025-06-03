@@ -1,4 +1,4 @@
 export default {
     name: 'Set Program Access and Defaults',
-    icon: 'folder.png',
+    icon: '/home/default-programs.png',
 }

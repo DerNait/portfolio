@@ -1,5 +1,6 @@
 import AboutMe from "./About Me/AboutMe";
 import Contact from "./Contact/Contact";
+import Credits from "./Credits/Credits";
 import Experience from "./Experience/Experience";
 import MyGames from "./MyGames/MyGames";
 import MyProjects from "./MyProjects/MyProjects";
@@ -11,5 +12,6 @@ export default [
     Skills,
     MyGames,
     AboutMe,
-    Contact
+    Contact,
+    Credits
 ]

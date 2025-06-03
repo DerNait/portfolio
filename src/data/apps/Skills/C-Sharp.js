@@ -1,5 +1,5 @@
 export default {
     name: 'C#',
     description: 'Advanced',
-    icon: 'csharp.png'
+    icon: '/skills/csharp.png'
 }

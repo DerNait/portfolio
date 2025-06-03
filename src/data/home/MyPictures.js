@@ -1,4 +1,4 @@
 export default {
     name: 'My Pictures',
-    icon: 'folder.png',
+    icon: '/home/my-pictures.png',
 }

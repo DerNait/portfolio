@@ -1,4 +1,4 @@
 export default {
     name: 'My Documents',
-    icon: 'folder.png',
+    icon: '/home/my-documents.png',
 }

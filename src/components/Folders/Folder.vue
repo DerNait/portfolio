@@ -3,13 +3,13 @@
     <FolderHeader :name="name" />
 
     <div class="folder-body">
-      <FolderSidebar 
+      <FolderSidebar
         :style="{ width: maximize === false ? '20%' : '30%', height: '100%' }"
-        :folders="folders"
+        :folders="sidebarContent()"
       />
       <div class="folder-main">
-        <component v-if="view" :is="DynamicView" :view="view" :maximize="maximize" :icon="app.icon"/>
-        <div v-else class="row ms-1 me-1">
+        <FolderView v-if="view" :is="DynamicView" :view="view" :maximize="maximize" :icon="app.icon"/>
+        <div v-else class="row ms-3 me-3">
           <FolderItem 
             v-for="(folder, index) in folders"
             :class="['mt-1', 'mb-1', maximize === false ? 'col-4' : 'col-6']"
@@ -29,17 +29,21 @@ import FolderHeader from './FolderHeader.vue'
 import FolderSidebar from './FolderSidebar.vue'
 import FolderItem from './FolderItem.vue'
 import FolderView from './FolderView.vue'
-import ViewComponents from '../ViewComponents'
 
 const props = defineProps(['app', 'name', 'sidebar_sections', 'folders', 'view'])
 const maximize = inject('maximize')
 
 provide('fatherApp', props.app)
 
-const DynamicView = computed(() => {
-  const componentName = props.view?.component
-  return ViewComponents[componentName] || FolderView
-})
+function sidebarContent() {
+  if (props.folders) {
+    return props.folders
+  }
+
+  if (props.view) {
+    return props.view.sections
+  }
+}
 </script>
 
 <style scoped>

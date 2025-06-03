@@ -1,4 +1,4 @@
 export default {
     name: 'Control Panel',
-    icon: 'folder.png',
+    icon: '/home/control-panel.png',
 }

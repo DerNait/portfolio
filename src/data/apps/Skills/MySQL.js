@@ -1,5 +1,5 @@
 export default {
     name: 'MySQL',
     description: 'Intermediate',
-    icon: 'mysql.png'
+    icon: '/skills/mysql.png'
 }

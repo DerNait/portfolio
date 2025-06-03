@@ -1,7 +1,7 @@
 <template>
   <div class="home d-flex flex-column justify-content-between">
     <div class="header">
-      <img src="https://23584.dernait.my/assets/kevin-pfp.jpg" alt="" class="pfp">
+      <img src="@assets/images/kevin-pfp.jpg" alt="" class="pfp">
       <p class="m-0 p-0 ms-2">
         Kevin Villagrán
       </p>

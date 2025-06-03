@@ -1,5 +1,9 @@
-import FolderView from "./Folders/FolderView.vue";
+import Credits from "./Folders/Views/Credits.vue";
+import Information from "./Folders/Views/Information.vue";
+import Project from "./Folders/Views/Project.vue";
 
 export default {
-    FolderView,
+    Information,
+    Project,
+    Credits
 }

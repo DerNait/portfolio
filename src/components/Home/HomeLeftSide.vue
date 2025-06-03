@@ -1,25 +1,22 @@
 <template>
-  <template v-for="(app, index) in appsData" :key="app.id">
-    <FolderItem
-      class="mt-2 mb-2"
-      :app="app"
-      :icon_size="'40px'"
-      :important="true"
-    />
-    <div 
-      v-if="index === 2" 
-      class="separator"
-    >
+  <div class="d-flex flex-column h-100">
+    <template v-for="(app, index) in appsData" :key="app.id">
+      <FolderItem
+        class="m-1"
+        :app="app"
+        :icon_size="'40px'"
+        :important="true"
+      />
+      <div v-if="index === 2" class="separator"></div>
+    </template>
+
+    <div class="mt-auto mb-2">
+      <div class="separator"></div>
+      <div class="all-programs d-flex align-items-center">
+        All Programs
+        <img src="@icons/go.png" alt="" width="32px" class="ms-2"/>
+      </div>
     </div>
-    <div 
-      v-if="index === 5" 
-      class="separator"
-    >
-    </div>
-  </template>
-  <div class="all-programs">
-    All Programs
-    <img src="@icons/folder.png" alt="" width="40px">
   </div>
 </template>
 

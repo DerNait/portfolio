@@ -1,5 +1,5 @@
 export default {
     name: 'JavaScript',
     description: 'Intermediate',
-    icon: 'javascript.png'
+    icon: '/skills/javascript.png'
 }

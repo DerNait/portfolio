@@ -1,5 +1,5 @@
 export default {
     name: 'Laravel',
     description: 'Intermediate',
-    icon: 'laravel.png'
+    icon: '/skills/laravel.png'
 }

@@ -1,4 +1,4 @@
 export default {
     name: 'Printers and Faxes',
-    icon: 'folder.png',
+    icon: '/home/printers.png',
 }

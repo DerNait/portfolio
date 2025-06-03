@@ -1,4 +1,4 @@
 export default {
     name: 'Run...',
-    icon: 'folder.png',
+    icon: '/home/run.png',
 }

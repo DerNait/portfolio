@@ -1,5 +1,5 @@
 export default {
     name: 'Unity',
     description: 'Advanced',
-    icon: 'unity.png'
+    icon: '/skills/unity.png'
 }

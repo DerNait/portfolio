@@ -31,6 +31,7 @@
           v-for="(folder, index) in (showAll ? folders : folders.slice(0, maxVisible))" 
           :name="folder.name"
           :folder="folder"
+          :father_app="fatherApp"
           :icon_size="'24px'"
           :highlight="true"
           :no_description="true"

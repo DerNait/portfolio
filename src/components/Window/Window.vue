@@ -37,7 +37,7 @@
           :on_button_clicked="execHideWindow"
         />
         <HeaderButton 
-          :icon="'maximize.png'" 
+          :icon="maximize ? 'maximize.png' : 'restore.png'" 
           :is_selected="is_selected"
           :on_button_clicked="toggleMaximizeWindow"
         />
