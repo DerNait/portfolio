@@ -3,7 +3,7 @@
     :class="`operation-buttons` + unselectedClass()"
     @click="onButtonClicked()"
   >
-    <img :src="`/src/assets/icons/${icon}`" alt="" />
+    <img :src="`/icons/${icon}`" alt="" />
   </button>
 </template>
 

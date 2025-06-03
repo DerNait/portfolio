@@ -5,7 +5,7 @@
     rel="noopener noreferrer"
     class="d-flex align-items-center redirect-class"
   >
-    <img :src="`/src/assets/icons/${app?.icon || section?.icon}`" :width="icon_size">
+    <img :src="`/icons/${app?.icon || section?.icon}`" :width="icon_size">
     <div class="ms-1 texts">
       <p :class="['m-0 p-0', { 'important-name': important, 'highlight-name': highlight }]">
         {{ app?.name || section?.name }}

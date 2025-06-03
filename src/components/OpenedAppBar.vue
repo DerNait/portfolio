@@ -3,7 +3,7 @@
     :class="barClass()"
     @click="selectBarApp()"
   >
-    <img :src="`/src/assets/icons/${app.icon}`" class="app-icon" />
+    <img :src="`/icons/${app.icon}`" class="app-icon" />
     <span>{{ app.name }}</span>
   </button>
 </template>

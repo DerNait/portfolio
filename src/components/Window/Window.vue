@@ -22,7 +22,7 @@
     >
       <div class="ms-1 d-flex header-name align-items-center">
         <img
-          :src="`/src/assets/icons/${app.icon}`"
+          :src="`/icons/${app.icon}`"
           alt=""
           width="18px"
           height="18px"

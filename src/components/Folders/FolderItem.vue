@@ -6,7 +6,7 @@
     rel="noopener noreferrer"
     class="d-flex align-items-center redirect-class"
   >
-    <img :src="`/src/assets/icons/${app?.icon || folder?.icon}`" :width="icon_size">
+    <img :src="`/icons/${app?.icon || folder?.icon}`" :width="icon_size">
     <div class="ms-1 texts">
       <p :class="['m-0 p-0', { 'important-name': important, 'highlight-name': highlight }]">
         {{ app?.name || folder?.name }}
@@ -22,7 +22,7 @@
     class="d-flex align-items-center"
     @click="onButtonClick"
   >
-    <img :src="`/src/assets/icons/${app?.icon || folder?.icon}`" alt="" :width="icon_size">
+    <img :src="`/icons/${app?.icon || folder?.icon}`" alt="" :width="icon_size">
     <div class="ms-1 texts">
       <p 
         :class="[

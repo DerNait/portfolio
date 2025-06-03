@@ -41,7 +41,7 @@ const props = defineProps(['view', 'maximize', 'icon'])
   right: 0;
   width: 400px;
   height: 400px;
-  background-image: v-bind("`url('/src/assets/icons/${icon}')`");
+  background-image: v-bind("`url('/icons/${icon}')`");
   background-repeat: no-repeat;
   background-size: contain;
   filter: grayscale(100%);

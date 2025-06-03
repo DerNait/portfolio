@@ -3,7 +3,7 @@
     class="desktop-icon"
     @click="onOpenApp"
   >
-    <img :src="`/src/assets/icons/${app.icon}`" alt="icon" />
+    <img :src="`/icons/${app.icon}`" alt="icon" />
     <p>{{ app.name }}</p>
   </button>
 </template>

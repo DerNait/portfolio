@@ -4,7 +4,7 @@
         <p class="text">{{ view.description  }}</p>
     
         <div v-if="view.image" class="mt-5 d-flex w-100 justify-content-center align-items-center">
-        <img class="pfp-image" :src="`/src/assets/images/${view.image}`" alt="">
+        <img class="pfp-image" :src="`/images/${view.image}`" alt="">
         <div class="d-flex flex-column align-items-start justify-content-center">
             <p class="image-text">{{ view.image_description }}</p>
             <p class="image-subtext">{{ view.image_subdescription }}</p>
