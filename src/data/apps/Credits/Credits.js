@@ -21,5 +21,6 @@ export default {
             JavaScript,
             Vue
         ],
+        github: 'https://github.com/DerNait/portfolio',
     }
 }

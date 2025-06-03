@@ -21,10 +21,29 @@
         :no_description="true"
       />
     </div>
+
+    <div class="row mt-3 ms-1 me-1">
+      <h3 class="fw-bold mt-5 mb-3">Repository:</h3>
+      <FolderViewItem 
+        v-if="view.github"
+        :class="['mt-1', 'mb-1', maximize === false ? 'col-4' : 'col-6']"
+        :section="gitHub"
+        :important="true"
+        :highlight="true"
+        :icon_size="'48px'"
+        :no_description="true"
+      />
+    </div>
   </div>
 </template>
 
 <script setup>
 import FolderViewItem from '../FolderViewItem.vue';
 const props = defineProps(['view', 'maximize'])
+
+const gitHub = {
+  name: 'GitHub',
+  icon: '/social/github.png',
+  redirect: props.view.github
+}
 </script>
