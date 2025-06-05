@@ -20,7 +20,7 @@
         <img src="@icons/logout.png" alt="" width="28px">
         Log Off
       </button>
-      <button class="home-footer-button">
+      <button class="home-footer-button" @click="shutdown">
         <img src="@icons/shutdown.png" alt="" width="28px">
         Turn Off Computer
       </button>
@@ -36,6 +36,10 @@ import HomeRightSide from './HomeRightSide.vue';
 const props = defineProps(['left_items', 'right_items'])
 const toggleUserLogin = inject('toggleUserLogin')
 const isMenuHided = inject('isMenuHided')
+
+const shutdown = () => {
+  window.location.href = 'https://dernait.my'
+}
 
 </script>
 
